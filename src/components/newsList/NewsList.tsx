@@ -26,14 +26,18 @@ const NewsList = () => {
   //   // setPage(1);
   //   dispatch(fetchNews(page));
   // }, [page]);
-  useMemo(() => {
-    dispatch(fetchNews(page));
-  }, [page]);
+
+  useEffect(() => {
+    if (news.length === 0) {
+      dispatch(fetchNews(page));
+    }
+  }, []);
 
   // useMemo(() => dispatch(fetchNews(page)), []);
 
   const handleLoadMore = () => {
     setPage(page + 1);
+    dispatch(fetchNews(page));
   };
 
   const handleDeleteNews = (id: number) => {
@@ -88,7 +92,7 @@ const NewsList = () => {
             <Button
               variant="contained"
               color="primary"
-              onClick={handleLoadMore}
+              onClick={() => handleLoadMore()}
             >
               Load More
             </Button>
