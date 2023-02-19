@@ -18,16 +18,6 @@ const NewsList = () => {
   const { news, hasMore } = useSelector((state: RootState) => state.news);
   const [page, setPage] = useState(1);
 
-  // useEffect(() => {
-  //   setPage(1);
-  //   dispatch(fetchNews(page));
-  // }, []);
-
-  // useEffect(() => {
-  //   // setPage(1);
-  //   dispatch(fetchNews(page));
-  // }, [page]);
-
   useEffect(() => {
     if (news.length === 0) {
       dispatch(fetchNews(page));

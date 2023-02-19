@@ -66,9 +66,6 @@ function Login() {
           alignItems: "center",
         }}
       >
-        {/* <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar> */}
         <Typography component="h1" variant="h5">
           Авторизація
         </Typography>

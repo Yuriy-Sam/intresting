@@ -6,19 +6,13 @@ import {
   AppBar,
   Box,
   CssBaseline,
-  Divider,
   Drawer,
   IconButton,
   List,
   ListItem,
   ListItemButton,
-  ListItemText,
   Toolbar,
   Button,
-  FormGroup,
-  FormControlLabel,
-  Switch,
-  ButtonGroup,
 } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
@@ -130,7 +124,7 @@ export default function Header(props: Props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", sm: "none" },
