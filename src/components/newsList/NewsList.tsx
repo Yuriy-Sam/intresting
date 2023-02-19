@@ -10,6 +10,7 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { Delete } from "@mui/icons-material";
 
 const NewsList = () => {
@@ -33,11 +34,9 @@ const NewsList = () => {
     }
   }, []);
 
-  // useMemo(() => dispatch(fetchNews(page)), []);
-
   const handleLoadMore = () => {
     setPage(page + 1);
-    dispatch(fetchNews(page));
+    dispatch(fetchNews(page + 1));
   };
 
   const handleDeleteNews = (id: number) => {
@@ -45,7 +44,7 @@ const NewsList = () => {
   };
   console.log(news);
   return (
-    <Container sx={{ marginTop: 15 }}>
+    <Container sx={{ paddingY: 20 }}>
       <Grid container rowSpacing={5} columnSpacing={{ xs: 3, sm: 5, md: 10 }}>
         {news.map((item) => (
           <Grid sx={{}} item xs={5} key={item.id}>
@@ -78,9 +77,11 @@ const NewsList = () => {
                   backgroundColor: "#fff",
                 }}
                 onClick={() => handleDeleteNews(item.id)}
+                startIcon={<DeleteIcon />}
               >
                 Delete
               </Button>
+
               {/* <IconButton>
                 <Delete />
               </IconButton> */}

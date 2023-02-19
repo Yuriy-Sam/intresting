@@ -1,0 +1,18 @@
+{
+  "uk": {
+    "translation": {
+      "menu.home": "На головну",
+      "menu.news": "Новини",
+      "menu.profile": "Профіль",
+      "menu.auth": "Авторизація"
+    }
+  },
+  "en": {
+    "translation": {
+      "menu.home": "Home",
+      "menu.news": "News",
+      "menu.profile": "Profile",
+      "menu.auth": "Authorization"
+    }
+  }
+}
