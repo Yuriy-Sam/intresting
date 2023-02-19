@@ -99,18 +99,18 @@ export default function Header(props: Props) {
           >
             <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
               {navItems.map((item) => (
-                <Button key={item.link} color="inherit">
-                  <NavLink
-                    end
-                    style={({ isActive }) => ({
-                      color: isActive ? "#000" : "inherit",
-                      textDecoration: "none",
-                    })}
-                    to={item.link}
-                  >
+                <NavLink
+                  end
+                  style={({ isActive }) => ({
+                    color: isActive ? "#000" : "inherit",
+                    textDecoration: "none",
+                  })}
+                  to={item.link}
+                >
+                  <Button key={item.link} color="inherit">
                     {item.name}
-                  </NavLink>
-                </Button>
+                  </Button>
+                </NavLink>
               ))}
             </Box>
             <LanguageSelector />

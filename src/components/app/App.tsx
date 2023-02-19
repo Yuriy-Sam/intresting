@@ -21,8 +21,8 @@ function App() {
   return (
     <Provider store={store}>
       <Suspense fallback={<span>Loading...</span>}>
-        {/* <Router> */}
-        <HashRouter>
+        <Router>
+          {/* <HashRouter> */}
           <div className="app">
             <Header />
             <main>
@@ -38,8 +38,8 @@ function App() {
               </Routes>
             </main>
           </div>
-        </HashRouter>
-        {/* </Router> */}
+          {/* </HashRouter> */}
+        </Router>
       </Suspense>
     </Provider>
   );

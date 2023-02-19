@@ -8,21 +8,6 @@ import {
   Container,
 } from "@mui/material";
 
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-// interface User {
-//   username: FormDataEntryValue | null;
-//   password: FormDataEntryValue | null;
-// }
-
-console.log(
-  JSON.parse(localStorage.getItem("auth")!),
-  'localStorage.getItem("auth")'
-);
-// if (localStorage.getItem("auth")) {
-//   const user: User = JSON.parse(localStorage.getItem("user")!);
-// }
-
 function Login() {
   const [userError, setUserError] = useState("");
   const [passError, setPassError] = useState("");
@@ -33,8 +18,10 @@ function Login() {
     const data = new FormData(event.currentTarget);
     const username = data.get("username");
     const password = data.get("password");
+    console.log(window.location.origin + window.location.pathname + "/profile");
     if (username === "admin" && password === "12345") {
       localStorage.setItem("auth", JSON.stringify(true));
+      // window.location.hash = "";
       window.location.href = "/profile";
     } else {
       if (username !== "admin")

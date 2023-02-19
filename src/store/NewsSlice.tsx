@@ -5,6 +5,7 @@ export interface NewsState {
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
   hasMore: boolean;
+  currentPage: number;
 }
 
 export interface News {
@@ -18,17 +19,16 @@ const initialState: NewsState = {
   status: "idle",
   error: null,
   hasMore: true,
+  currentPage: 1,
 };
 
 export const fetchNews = createAsyncThunk(
   "news/fetchNews",
   async (page: number) => {
-    console.log("Feettt");
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=6`
     );
     const data = await response.json();
-    console.log(data, "data");
 
     return data;
   }
@@ -47,7 +47,11 @@ export const deleteNews = createAsyncThunk(
 export const NewsSlice = createSlice({
   name: "news",
   initialState,
-  reducers: {},
+  reducers: {
+    setCurrentPage(state, action) {
+      state.currentPage = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchNews.pending, (state) => {
@@ -75,5 +79,7 @@ export const NewsSlice = createSlice({
       });
   },
 });
+
+export const { setCurrentPage } = NewsSlice.actions;
 
 export default NewsSlice.reducer;

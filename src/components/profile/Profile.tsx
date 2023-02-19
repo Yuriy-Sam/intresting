@@ -11,8 +11,10 @@ const Profile = (props: Props) => {
   return (
     <Box component="main" sx={{ p: 3 }}>
       <Toolbar />
-      <Box>
-        <Typography>Profile</Typography>
+      <Box textAlign="center">
+        <Typography mb={5} variant="h5" color="GrayText">
+          Профіль
+        </Typography>
         <Button
           onClick={() => handleLogout()}
           variant="contained"
