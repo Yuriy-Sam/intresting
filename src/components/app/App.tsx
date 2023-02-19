@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import {
   BrowserRouter as Router,
+  HashRouter,
   Navigate,
   redirect,
   Route,
@@ -20,7 +21,8 @@ function App() {
   return (
     <Provider store={store}>
       <Suspense fallback={<span>Loading...</span>}>
-        <Router>
+        {/* <Router> */}
+        <HashRouter>
           <div className="app">
             <Header />
             <main>
@@ -36,7 +38,8 @@ function App() {
               </Routes>
             </main>
           </div>
-        </Router>
+        </HashRouter>
+        {/* </Router> */}
       </Suspense>
     </Provider>
   );
